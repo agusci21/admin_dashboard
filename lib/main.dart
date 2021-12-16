@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 
 void main() {
   Flurorouter.configureRoutes();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       onGenerateRoute: Flurorouter.router.generator,
       builder: (context, child){
-        return AuthLayout();
+        return const AuthLayout();
       },
     );
   }

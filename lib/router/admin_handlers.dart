@@ -6,7 +6,7 @@ class AdminHandlers {
 
   static Handler login = Handler(
     handlerFunc: (context, params){
-      return LoginView();
+      return const LoginView();
     }
   );
 
