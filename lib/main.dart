@@ -17,8 +17,14 @@ class MyApp extends StatelessWidget {
       title: 'Admin Dashboard',
       initialRoute: '/',
       onGenerateRoute: Flurorouter.router.generator,
-      builder: (context, child){
-        return  AuthLayout(child: child!,);
+      theme: ThemeData.light().copyWith(
+          scrollbarTheme: const ScrollbarThemeData().copyWith(
+              thumbColor:
+                  MaterialStateProperty.all(Colors.grey.withOpacity(0.5)))),
+      builder: (context, child) {
+        return AuthLayout(
+          child: child!,
+        );
       },
     );
   }
