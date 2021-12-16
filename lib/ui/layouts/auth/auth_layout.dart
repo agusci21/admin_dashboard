@@ -1,25 +1,29 @@
+import 'package:flutter/material.dart';
+
 import 'package:admin_dashboard/ui/layouts/auth/widgets/custom_background.dart';
 import 'package:admin_dashboard/ui/layouts/auth/widgets/custom_title.dart';
 import 'package:admin_dashboard/ui/layouts/auth/widgets/links_bar.dart';
-import 'package:flutter/material.dart';
 
 class AuthLayout extends StatelessWidget {
   final Widget child;
+
   const AuthLayout({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Scaffold(
         body: Scrollbar(
+      // isAlwaysShown: true,
       child: ListView(
         physics: const ClampingScrollPhysics(),
         children: [
-          size.width > 1000
-              ? _DesktopBody(
-                  child: child,
-                )
+          (size.width > 1000)
+              ? _DesktopBody(child: child)
               : _MobileBody(child: child),
+
+          // LinksBar
           const LinksBar()
         ],
       ),
@@ -29,6 +33,7 @@ class AuthLayout extends StatelessWidget {
 
 class _MobileBody extends StatelessWidget {
   final Widget child;
+
   const _MobileBody({Key? key, required this.child}) : super(key: key);
 
   @override
@@ -38,9 +43,7 @@ class _MobileBody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SizedBox(
-            height: 20,
-          ),
+          const SizedBox(height: 20),
           const CustomTitle(),
           SizedBox(
             width: double.infinity,
@@ -50,7 +53,7 @@ class _MobileBody extends StatelessWidget {
           const SizedBox(
             width: double.infinity,
             height: 400,
-            child: CustomBackground(),
+            child: BackgroundTwitter(),
           )
         ],
       ),
@@ -60,33 +63,33 @@ class _MobileBody extends StatelessWidget {
 
 class _DesktopBody extends StatelessWidget {
   final Widget child;
+
   const _DesktopBody({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return SizedBox(
+
+    return Container(
       width: size.width,
-      height: size.height * .95,
+      height: size.height * 0.95,
+      color: Colors.red,
       child: Row(
         children: [
-          //TweeterBackground
-          const CustomBackground(),
+          // Twitter Background
+          const BackgroundTwitter(),
 
+          // View Container
           Container(
             width: 600,
             height: double.infinity,
             color: Colors.black,
             child: Column(
               children: [
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 const CustomTitle(),
-                const SizedBox(
-                  height: 50,
-                ),
-                Expanded(child: child)
+                const SizedBox(height: 50),
+                Expanded(child: child),
               ],
             ),
           )

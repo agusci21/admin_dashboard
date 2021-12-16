@@ -8,7 +8,7 @@ class NoPageFoundView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        'No Page Found',
+        '404 - Página no encontrada',
         style: GoogleFonts.montserratAlternates(
             fontSize: 50, fontWeight: FontWeight.bold),
       ),
