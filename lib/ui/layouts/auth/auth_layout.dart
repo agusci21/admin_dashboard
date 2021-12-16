@@ -1,5 +1,6 @@
 import 'package:admin_dashboard/ui/layouts/auth/widgets/custom_background.dart';
 import 'package:admin_dashboard/ui/layouts/auth/widgets/custom_title.dart';
+import 'package:admin_dashboard/ui/layouts/auth/widgets/links_bar.dart';
 import 'package:flutter/material.dart';
 
 class AuthLayout extends StatelessWidget {
@@ -10,13 +11,15 @@ class AuthLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: ListView(
+      physics: const ClampingScrollPhysics(),
       children: [
         //Desktop
         _DesktopBody(
           child: child,
-        )
+        ),
         //Mobile
         //LinksBar
+        const LinksBar()
       ],
     ));
   }
@@ -31,7 +34,7 @@ class _DesktopBody extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return SizedBox(
       width: size.width,
-      height: size.height,
+      height: size.height * .93,
       child: Row(
         children: [
           //TweeterBackground
