@@ -70,7 +70,7 @@ class LinksBar extends StatelessWidget {
       ),
     ];
     return Container(
-        height: size.height * .05,
+        height: size.width > 1000 ? size.height * .05 : null,
         color: Colors.black,
         child: Wrap(
           alignment: WrapAlignment.center,
