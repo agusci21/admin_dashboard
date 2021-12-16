@@ -1,16 +1,20 @@
 import 'package:admin_dashboard/ui/layouts/auth/widgets/custom_background.dart';
+import 'package:admin_dashboard/ui/layouts/auth/widgets/custom_title.dart';
 import 'package:flutter/material.dart';
 
 class AuthLayout extends StatelessWidget {
-  const AuthLayout({Key? key}) : super(key: key);
+  final Widget child;
+  const AuthLayout({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: ListView(
-      children: const [
+      children: [
         //Desktop
-        _DesktopBody()
+        _DesktopBody(
+          child: child,
+        )
         //Mobile
         //LinksBar
       ],
@@ -19,15 +23,15 @@ class AuthLayout extends StatelessWidget {
 }
 
 class _DesktopBody extends StatelessWidget {
-  const _DesktopBody({Key? key}) : super(key: key);
+  final Widget child;
+  const _DesktopBody({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       width: size.width,
       height: size.height,
-      color: Colors.red,
       child: Row(
         children: [
           //TweeterBackground
@@ -37,7 +41,18 @@ class _DesktopBody extends StatelessWidget {
             width: 600,
             height: double.infinity,
             color: Colors.black,
-            //child:, TODO HAcer el View
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                const CustomTitle(),
+                const SizedBox(
+                  height: 50,
+                ),
+                Expanded(child: child)
+              ],
+            ),
           )
         ],
       ),
