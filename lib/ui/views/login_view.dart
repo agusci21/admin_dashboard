@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/ui/buttons/custom_outline_button.dart';
 import 'package:admin_dashboard/ui/buttons/link_text.dart';
 import 'package:flutter/material.dart';
 
@@ -40,8 +41,14 @@ class LoginView extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
+              CustomOutLineButton(
+                onPressed: () {},
+                text: 'Ingresar',
+              ),
+
               LinkText(
                 'Nueva Cuenta',
+                color: Colors.grey.shade700,
                 onPressed: () {
                   //TODO ir al registro
                 },
