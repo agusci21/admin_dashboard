@@ -34,7 +34,7 @@ class _DesktopBody extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return SizedBox(
       width: size.width,
-      height: size.height * .93,
+      height: size.height * .95,
       child: Row(
         children: [
           //TweeterBackground
